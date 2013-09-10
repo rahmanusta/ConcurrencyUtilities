@@ -48,8 +48,19 @@ public class KodcuServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       /*
+        try{
+            InitialContext context=new InitialContext(); // (5)
+
+            ManagedExecutorService managedExecutorServiceWithContext =
+                    (ManagedExecutorService) context.lookup("concurrent/KodcuExecutor");
+        } catch (NamingException nexp){
+            nexp.printStackTrace();
+        } */
 
         try {
+
+
 
             scheduledExecutorService
                     .schedule(new Gorev(), new CronTrigger(new CronExpression("0/5 * * * * ?")));
